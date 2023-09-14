@@ -7,5 +7,5 @@ urlpatterns = [
     path('category/<slug:cat>', categories),  # маршрут - http://127.0.0.1:8000/category/...
     path('goods/', goods),
     path('goods_checklist/', goods_checklist),
-
+    #just review materials by Git-Hub
 ]
