@@ -1,0 +1,20 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+
+<title>{{title}}</title>
+<h1>Товари магазину Сергія Петровича</h1>
+    <title class="main-nav">{{title}}</title>
+<nav>
+    <ul class="main-nav">
+    {% for i in item %}
+    <li class="nav-itm">
+        <h1>{{i.name}}</h1>
+        <p>{{i.description}}</p>
+            {{i.price}}
+        <hr>
+        {% endfor %}
+    </li>
+</nav>
+</ul>
+
+{% endblock %}
