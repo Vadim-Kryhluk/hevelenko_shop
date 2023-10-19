@@ -3,7 +3,20 @@ from django.shortcuts import render, redirect
 
 from .models import *
 
-menu = ['Головна', 'Товари', 'Додати товар']
+menu = [{'title': 'Головна', 'url_name': 'main_page'},
+        {'title': 'Мої замовлення', 'url_name': 'main_page'},
+]
+
+
+navigation_menu = [
+    {'id': 1, 'name': 'Мій профіль'},
+    {'id': 2, 'name': 'Мої замовлення'},
+    {'id': 3, 'name': 'Категорії товарів'},
+    {'id': 4, 'name': 'Увійти'},
+]
+
+
+
 
 def index(request):
     goods = Goods.objects.all()
@@ -26,9 +39,22 @@ def goods_checklist(request):
     return render(request, 'shop/goods_checklist.html')
 
 
+#def show_category(request, cat_id):
+    #return index(request)
+
+def my_orders(request):
+    order = Goods.objects.all()
+    return render(request, 'shop/my_orders.html', {'order': order, 'menu': menu, 'title': 'Мої замовлення'})
+
+
 def profile(request):
     user = Goods.objects.all()
     return render(request, 'shop/profile.html', {'user': user, 'menu': menu, 'title': 'Мій профіль'})
+
+def login(request):
+    login = Goods.objects.all()
+    return render(request, 'shop/log_in.html', {'login': login, 'menu': menu, 'title': 'Авторизація'})
+
 
 def pageNotFound(request, exceprion):
     return HttpResponseNotFound('Сторінка не знайдена')

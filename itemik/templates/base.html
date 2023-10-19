@@ -1,4 +1,5 @@
 {% load static %}
+{% load shop_tags %}
 {% load bootstrap5 %}
 <html lang="en" data-bs-theme="light"><head><script src="/docs/5.3/assets/js/color-modes.js"></script>
 
@@ -39,7 +40,7 @@
 
           <nav class="nav">
                 <a class="nav-link" href="{% url 'profile' %}">Мій профіль</a>
-                <a class="nav-link" href="#">Додати товар</a>
+                <a class="nav-link" href="{% url 'orders' %}">Мої замовлення</a>
                  <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
                        role="button" aria-haspopup="true" aria-expanded="false">Категорії товарів</a>
@@ -50,7 +51,7 @@
             <a class="dropdown-item" href="#">Пятая ссылка</a>
         </div>
     </li>
-                <a class="nav-link" href="#">Увійти</a>
+                <a class="nav-link" href="{% url 'login_user' %}">Увійти</a>
             </nav>
       </a>
 
