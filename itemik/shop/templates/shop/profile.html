@@ -6,8 +6,11 @@
 
 <main>
 <div class="container">
-    <p>Ім'я компанії -</p>
-
+    <p>{{user.first_name}}  {{user.last_name}}</p>
+    <p>Ваш номер телефону - {{user.username}}</p>
+    <p>{{ user.profile.address }}</p>
+    <br>
+    <p>Ім'я компанії - {{user.profile.name_of_shop}}</p>
     <span>Кількість замовлень</span>
 
 </div>

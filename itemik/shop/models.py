@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from mptt.models import MPTTModel, TreeForeignKey
 
 
@@ -25,6 +26,20 @@ class Category(MPTTModel):
 
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, verbose_name='Номер користувача')
+    username = models.CharField(max_length=75, verbose_name="Ім'я користувача", null=True)
+    name_of_shop = models.CharField(max_length=100, verbose_name='Назва магазину')
+    address = models.CharField(max_length=100, verbose_name='Адреса')
+
+    class Meta:
+        verbose_name = 'Профілі'
+        verbose_name_plural = 'Профілі'
+    def __str__(self):
+        return str(self.name_of_shop)
+
+
+
 class Tag(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
@@ -44,12 +59,13 @@ class Goods(models.Model):
     category = models.ForeignKey(Category,
                                  related_name="post",
                                  on_delete=models.SET_NULL,
-                                 null=True
+                                 null=True,
+                                 verbose_name='Категорії'
                                  )
     tags = models.ManyToManyField(Tag, related_name="post")
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    is_published = models.BooleanField(default=True)
+    is_published = models.BooleanField(default=True, verbose_name='Опубліковано')
 
     def __str__(self):
         return self.name
@@ -57,6 +73,9 @@ class Goods(models.Model):
     class Meta:
         verbose_name = "Товари"
         verbose_name_plural = "Товари"
+        ordering = ['create_at']
+
+
 
 
 
