@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <form method="post">
+    {% csrf_token %}
+
+<div class="form-error">{{ form.non_field_errors }}</div>
+
+{% for f in form %}
+<p><label class="mb-3" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+
+ <!-- <div class="mb-3">
+    <label class="form-label">Номер телефону</label>
+    <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">Ваш номер телефону залишиться тільки на просторах нашої бази даних.</div>
+  </div>
+  <div class="mb-3">
+    <label for="InputPassword" class="form-label">Пароль</label>
+    <input type="password" class="form-control" id="InputPassword">
+  </div>
+    -->
+  <button type="submit" class="btn btn-primary">Увійти</button>
+</form>
+</body>
+  </div>
+{% endblock %}
+
+
