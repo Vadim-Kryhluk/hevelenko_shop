@@ -11,6 +11,7 @@ urlpatterns = [
     path('item/', item, name='item'),
     path('goods_checklist/', goods_checklist),
     path('my_orders/', my_orders, name='orders'),
+    path('basket/', Basket.as_view(), name='basket'),
     path('profile/', profile, name='profile'),
     path('logout/', logout_user, name='logout'),
     path('login/', LoginUser.as_view(), name='login_user'),

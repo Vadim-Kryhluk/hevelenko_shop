@@ -1,24 +1,17 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends "base.html" %}
 
- <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-4 col-md-8 mx-auto">
-          <h1 class="fw-light">Ассортимент нашого магазину</h1>
-          <p class="lead text-body-secondary">Все для вашого дому та виробництва</p>
-          <p>В асортименті багато товарів з нашого сайту, які ви можете замовити зв'язавшись з нашим Клієнтським менеджером</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">Замовити товар</a>
-            <a href="https://t.me/Yong_Agrariy" class="btn btn-secondary my-2">З'єднатись з менеджером</a>
-          </p>
-        </div>
-      </div>
-    </section>
+{% block content %}
+<div class="container">
+
+    <title>{{title}}</title>
+    <h1>Корзина</h1>
+    <br>
+    <p>Я люблю пайтон</p>
 
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-">
-           {% for i in item %}
+           {% for i in basket %}
 
           <div class="col">
             <div class="card shadow-sm">

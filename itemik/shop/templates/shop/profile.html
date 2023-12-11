@@ -6,12 +6,15 @@
 
 <main>
 <div class="container">
-    <p>{{user.first_name}}  {{user.last_name}}</p>
-    <p>Ваш номер телефону - {{user.username}}</p>
-    <p>{{ user.profile.address }}</p>
+    <p>Користувач - {{user.first_name}}  {{user.last_name}}</p>
     <br>
-    <p>Ім'я компанії - {{user.profile.name_of_shop}}</p>
-    <span>Кількість замовлень</span>
+    <p>Ваш номер телефону - {{user.username}}</p>
+    <br>
+    <p>Адреса магазину: {{ user.profile.address }}</p>
+    <br>
+    <p>Назва магазину - {{user.profile.name_of_shop}}</p>
+    <br>
+    <span>Кількість замовлень </span>
 
 </div>
 </main>

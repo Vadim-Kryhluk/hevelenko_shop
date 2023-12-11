@@ -18,3 +18,5 @@ admin.site.register(models.Category, MPTTModelAdmin)
 admin.site.register(models.Goods, GoodsAdmin)
 admin.site.register(models.Tag)
 admin.site.register(models.Profile)
+admin.site.register(models.Basket)
+

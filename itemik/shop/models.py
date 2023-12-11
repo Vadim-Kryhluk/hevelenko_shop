@@ -75,7 +75,15 @@ class Goods(models.Model):
         verbose_name_plural = "Товари"
         ordering = ['create_at']
 
+# ***Створюємо корзину замовлень***
+class Basket(models.Model):
+    # Прив'язка товару до користувача
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    goods = models.ForeignKey(Goods, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=0)
+    # час створення замовлення
+    created_timestamp = models.DateTimeField(auto_now_add=True)
 
-
-
-
+    # Повертаємо ім'я користувача + назву товару
+    def __str__(self):
+        return f"Корзина для {self.user.user} | Товар {self.goods.name}"

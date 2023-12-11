@@ -36,6 +36,16 @@ class ShopHome(DataMixin, ListView):
 #
 
 
+class Basket(DataMixin, ListView):
+    model = Basket
+    template_name = 'shop/basket.html'
+    context_object_name = 'basket'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
 def item(request):
     itemik = Goods.objects.all()
     return render(request, 'shop/item.html', context={'item': itemik, 'title': 'Товар'})
@@ -93,15 +103,15 @@ class LoginUser(DataMixin, LoginView):
     def get_success_url(self):
         return reverse_lazy('main_page')
 
-def login(request):
-    login = Goods.objects.all()
-    return render(request, 'shop/log_in.html', {'login': login, 'menu': menu, 'title': 'Авторизація'})
-
 
 def logout_user(request):
     logout(request)
     return redirect('login_user')
 
+
+#def login(request):
+ #   login = Goods.objects.all()
+  #  return render(request, 'shop/log_in.html', {'login': login, 'menu': menu, 'title': 'Авторизація'})
 
 def pageNotFound(request, exceprion):
     return HttpResponseNotFound('Сторінка не знайдена')
